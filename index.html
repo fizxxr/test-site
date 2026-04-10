@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dock Folders</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+    background: #0b0b0f;
+    color: white;
+    overflow-x: hidden;
+  }
+
+  h1 {
+    font-size: 56px;
+    margin: 0;
+    font-weight: 600;
+  }
+
+  p {
+    color: #aaa;
+    font-size: 18px;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 100px 20px 60px;
+  }
+
+  .buttons {
+    margin-top: 25px;
+  }
+
+  .btn {
+    background: white;
+    color: black;
+    padding: 12px 22px;
+    border-radius: 999px;
+    text-decoration: none;
+    margin: 5px;
+    display: inline-block;
+    font-weight: 500;
+  }
+
+  .btn.secondary {
+    background: transparent;
+    border: 1px solid #555;
+    color: white;
+  }
+
+  /* Mac window preview */
+  .preview {
+    margin: 60px auto;
+    width: 90%;
+    max-width: 900px;
+    border-radius: 16px;
+    background: #1c1c22;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    overflow: hidden;
+  }
+
+  .titlebar {
+    height: 40px;
+    background: rgba(255,255,255,0.05);
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+
+  .red { background: #ff5f57; }
+  .yellow { background: #febc2e; }
+  .green { background: #28c840; }
+
+  .screen {
+    height: 400px;
+    background: linear-gradient(#2c2c34, #1a1a20);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 20px;
+  }
+
+  /* Dock */
+  .dock {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 10px 15px;
+    display: flex;
+    gap: 12px;
+  }
+
+  .app, .folder {
+    width: 50px;
+    height: 50px;
+    background: #444;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .app:hover, .folder:hover {
+    transform: scale(1.15);
+  }
+
+  .folder {
+    background: linear-gradient(135deg, #6aa9ff, #3b6fff);
+    position: relative;
+  }
+
+  /* Folder popup */
+  .folder-popup {
+    position: absolute;
+    bottom: 70px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 180px;
+    background: rgba(30,30,40,0.95);
+    border-radius: 16px;
+    padding: 10px;
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .folder-popup div {
+    height: 40px;
+    background: #555;
+    border-radius: 10px;
+  }
+
+  .folder.active .folder-popup {
+    display: grid;
+    animation: pop 0.25s ease;
+  }
+
+  @keyframes pop {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  /* Features */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    padding: 80px 40px;
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  .feature {
+    background: #15151b;
+    padding: 20px;
+    border-radius: 16px;
+    transition: transform 0.2s;
+  }
+
+  .feature:hover {
+    transform: translateY(-5px);
+  }
+
+  /* Download */
+  .download {
+    text-align: center;
+    padding: 80px 20px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 30px;
+    color: #666;
+  }
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <h1>Your Dock, Reimagined.</h1>
+  <p>Organize apps into beautiful iPhone-style folders — right in your Mac Dock.</p>
+
+  <div class="buttons">
+    <a href="#" class="btn">Download for macOS</a>
+    <a href="#" class="btn secondary">Watch Preview</a>
+  </div>
+
+  <div class="preview">
+    <div class="titlebar">
+      <div class="dot red"></div>
+      <div class="dot yellow"></div>
+      <div class="dot green"></div>
+    </div>
+
+    <div class="screen">
+      <div class="dock">
+        <div class="app"></div>
+        <div class="app"></div>
+
+        <div class="folder" onclick="toggleFolder(this)">
+          <div class="folder-popup">
+            <div></div><div></div><div></div>
+            <div></div><div></div><div></div>
+          </div>
+        </div>
+
+        <div class="app"></div>
+        <div class="app"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="feature">
+    <h3>Folder Organization</h3>
+    <p>Group apps directly in your dock like iOS.</p>
+  </div>
+
+  <div class="feature">
+    <h3>Instant Access</h3>
+    <p>Open everything faster with expandable folders.</p>
+  </div>
+
+  <div class="feature">
+    <h3>Native Feel</h3>
+    <p>Designed to match macOS perfectly.</p>
+  </div>
+
+  <div class="feature">
+    <h3>Smooth Animations</h3>
+    <p>Fluid transitions and interactions.</p>
+  </div>
+</section>
+
+<section class="download">
+  <h1>Download Dock Folders</h1>
+  <p>Available for macOS</p>
+
+  <div class="buttons">
+    <a href="#" class="btn">Apple Silicon</a>
+    <a href="#" class="btn">Intel</a>
+  </div>
+</section>
+
+<footer>
+  Built for macOS. Designed for simplicity.
+</footer>
+
+<script>
+function toggleFolder(el) {
+  el.classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
