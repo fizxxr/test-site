@@ -23,11 +23,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5%;
+    padding: 22px 5%;
     z-index: 1000;
   
     /* Glassmorphism Effect */
-    background: #FFF3DB1A; /* Transparent white */
+    background: #FFF3DB80; /* Transparent white */
     backdrop-filter: blur(10px);          /* The blur effect */
     -webkit-backdrop-filter: blur(10px);  /* Safari support */
     /* border-bottom: 1px solid rgba(255, 255, 255, 0.2); */
@@ -40,12 +40,14 @@
   }
   
   .main-btn {
-    padding: 0.8rem 1.5rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    padding: 19px 30px;
+    border-radius: 15px;
+    text-decoration: none;
+    margin: 5px;
+    display: inline-block;
+    background: rgba(0,0,0,0.05);
+    color: #2a2524;
+    box-shadow: 0 0 0 rgba(0,0,0,0);
   }
 
   h1 {
@@ -83,7 +85,7 @@
   }
 
   .btn.secondary {
-    background: rgba(0,0,0,0.1);
+    background: rgba(0,0,0,0.05);
     color: #2a2524;
     box-shadow: 0 0 0 rgba(0,0,0,0);
   }
@@ -224,7 +226,7 @@
 <body>
 <header class="glass-header">
   <div class="logo">Coterie</div>
-  <button class="main-btn">Get Started</button>
+  <button class="main-btn">Download for Mac</button>
 </header>
 
 <section class="hero">
@@ -232,7 +234,7 @@
   <p>Organize apps into beautiful iPhone-style folders — right in your Mac Dock.</p>
 
   <div class="buttons">
-    <a href="#" class="btn">Download for macOS</a>
+    <a href="#" class="btn">Download for Mac</a>
     <a href="#" class="btn secondary">Watch Preview</a>
   </div>
 
