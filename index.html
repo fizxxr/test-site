@@ -23,18 +23,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 0px;
+    padding: 24px 4px;
     z-index: 1000;
   
     /* Glassmorphism Effect */
-    background: #FFF3DBBF; /* Transparent white */
-    backdrop-filter: blur(10px);          /* The blur effect */
-    -webkit-backdrop-filter: blur(10px);  /* Safari support */
+    background: #FFF3DBE6; /* Transparent white */
+    backdrop-filter: blur(15px);          /* The blur effect */
+    -webkit-backdrop-filter: blur(15px);  /* Safari support */
     /* border-bottom: 1px solid rgba(255, 255, 255, 0.2); */
   }
   
   .logo {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 650;
     color: #2a2524;
   }
@@ -57,6 +57,10 @@
     margin: 0
     font-weight: 750;
     line-height: 1.05;
+  }
+
+  h3 {
+    color: #2a2524;
   }
 
   p {
@@ -93,10 +97,10 @@
 
   /* Mac window preview */
   .preview {
-    margin: 60px auto;
+    margin: 30px auto;
     width: 90%;
-    max-width: 900px;
-    border-radius: 16px;
+    max-width: 1200px;
+    border-radius: 32px;
     background: #1c1c22;
     overflow: hidden;
   }
@@ -200,9 +204,8 @@
   }
 
   .feature {
-    background: #15151b;
+    background: #00000000;
     padding: 20px;
-    border-radius: 16px;
     transition: transform 0.2s;
   }
 
@@ -240,12 +243,6 @@
   </div>
 
   <div class="preview">
-    <div class="titlebar">
-      <div class="dot red"></div>
-      <div class="dot yellow"></div>
-      <div class="dot green"></div>
-    </div>
-
     <div class="screen">
       <div class="dock">
         <div class="app"></div>
