@@ -13,12 +13,12 @@ body {
   background: #FFF3DB;
   color: #2a2524;
   overflow-x: hidden;
-  animation: fadeIn 0.8s ease;
+  animation: fadeIn 0.6s ease;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* HEADER */
@@ -29,19 +29,19 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 28px;
+  padding: 16px 28px;
   z-index: 1000;
 
-  background: rgba(255,243,219,0.75);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  background: rgba(255,243,219,0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 
-  transition: all 0.3s ease;
+  transition: box-shadow 0.25s ease, border 0.25s ease;
 }
 
 header.scrolled {
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
 /* LOGO */
@@ -60,7 +60,7 @@ header.scrolled {
   border: none;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .main-btn {
@@ -70,7 +70,7 @@ header.scrolled {
 .btn {
   background: #2a2524;
   color: #FFF3DB;
-  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .btn.secondary {
@@ -79,13 +79,12 @@ header.scrolled {
   box-shadow: none;
 }
 
-.btn:hover, .main-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 30px rgba(0,0,0,0.2);
+.btn:hover {
+  background: #1f1b1a;
 }
 
-.btn:active, .main-btn:active {
-  transform: scale(0.96);
+.main-btn:hover {
+  background: rgba(0,0,0,0.1);
 }
 
 /* HERO */
@@ -113,13 +112,18 @@ p {
   max-width: 1100px;
   border-radius: 28px;
   overflow: hidden;
-  box-shadow: 0 40px 100px rgba(0,0,0,0.25);
-  transform: scale(0.98);
-  transition: 0.4s ease;
+
+  box-shadow: 
+    0 60px 120px rgba(0,0,0,0.25),
+    0 10px 30px rgba(0,0,0,0.1);
+
+  transition: box-shadow 0.3s ease;
 }
 
 .preview:hover {
-  transform: scale(1);
+  box-shadow: 
+    0 70px 140px rgba(0,0,0,0.28),
+    0 12px 35px rgba(0,0,0,0.12);
 }
 
 .screen {
@@ -147,7 +151,11 @@ p {
   height: 52px;
   border-radius: 14px;
   background: #444;
-  transition: transform 0.2s ease;
+  transition: transform 0.15s ease;
+}
+
+.app:hover, .folder:hover {
+  transform: scale(1.08);
 }
 
 .folder {
@@ -155,33 +163,24 @@ p {
   position: relative;
 }
 
-/* MACOS DOCK HOVER EFFECT */
-.dock:hover .app,
-.dock:hover .folder {
-  transform: scale(0.9);
-}
-
-.dock .app:hover,
-.dock .folder:hover {
-  transform: scale(1.3);
-}
-
 /* FOLDER */
 .folder-popup {
   position: absolute;
   bottom: 75px;
   left: 50%;
-  transform: translateX(-50%) scale(0.8);
+  transform: translateX(-50%);
   width: 190px;
   background: rgba(30,30,40,0.95);
   border-radius: 18px;
   padding: 12px;
+
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
+
   opacity: 0;
   pointer-events: none;
-  transition: all 0.25s ease;
+  transition: opacity 0.15s ease;
 }
 
 .folder-popup div {
@@ -192,7 +191,6 @@ p {
 
 .folder.active .folder-popup {
   opacity: 1;
-  transform: translateX(-50%) scale(1);
   pointer-events: auto;
 }
 
@@ -207,11 +205,11 @@ p {
 }
 
 .feature {
-  transition: 0.3s;
+  transition: transform 0.2s ease;
 }
 
 .feature:hover {
-  transform: translateY(-8px);
+  transform: translateY(-3px);
 }
 
 /* DOWNLOAD */
@@ -229,13 +227,14 @@ footer {
 </head>
 
 <body>
-<header class="glass-header">
+
+<header>
   <div class="logo">
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M16.365 1.43c0 1.14-.47 2.19-1.23 2.96-.8.82-2.1 1.45-3.22 1.35-.14-1.12.43-2.3 1.2-3.05.83-.82 2.23-1.4 3.25-1.26zM20.5 17.1c-.6 1.4-.9 2.02-1.66 3.2-1.06 1.7-2.56 3.82-4.42 3.84-1.66.02-2.1-1.08-4.35-1.07-2.25.02-2.73 1.1-4.4 1.08-1.86-.02-3.28-1.96-4.34-3.66C-.4 15.5-.85 9.8 2.3 6.8c1.54-1.45 3.54-2.3 5.42-2.3 2.02 0 3.3 1.1 4.97 1.1 1.62 0 2.6-1.1 4.96-1.1 1.67 0 3.44.9 4.98 2.44-4.4 2.4-3.68 8.74.87 10.16z"/>
-  </svg>
-  Coterie
-</div>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M16.365 1.43c0 1.14-.47 2.19-1.23 2.96-.8.82-2.1 1.45-3.22 1.35-.14-1.12.43-2.3 1.2-3.05.83-.82 2.23-1.4 3.25-1.26zM20.5 17.1c-.6 1.4-.9 2.02-1.66 3.2-1.06 1.7-2.56 3.82-4.42 3.84-1.66.02-2.1-1.08-4.35-1.07-2.25.02-2.73 1.1-4.4 1.08-1.86-.02-3.28-1.96-4.34-3.66C-.4 15.5-.85 9.8 2.3 6.8c1.54-1.45 3.54-2.3 5.42-2.3 2.02 0 3.3 1.1 4.97 1.1 1.62 0 2.6-1.1 4.96-1.1 1.67 0 3.44.9 4.98 2.44-4.4 2.4-3.68 8.74.87 10.16z"/>
+    </svg>
+    Coterie
+  </div>
   <button class="main-btn">Download for Mac</button>
 </header>
 
@@ -305,12 +304,10 @@ footer {
 </footer>
 
 <script>
-// Folder toggle
 function toggleFolder(el) {
   el.classList.toggle("active");
 }
 
-// Header shadow on scroll
 const header = document.querySelector("header");
 
 window.addEventListener("scroll", () => {
