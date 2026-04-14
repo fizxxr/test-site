@@ -13,6 +13,12 @@
     background: #FFF3DB;
     color: white;
     overflow-x: hidden;
+    animation: fadeIn 0.8s ease;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
   }
   
   header {
@@ -28,9 +34,16 @@
   
     /* Glassmorphism Effect */
     background: #FFF3DBE6; /* Transparent white */
-    backdrop-filter: blur(15px);          /* The blur effect */
-    -webkit-backdrop-filter: blur(15px);  /* Safari support */
+    backdrop-filter: blur(18px);          /* The blur effect */
+    -webkit-backdrop-filter: blur(18px);  /* Safari support */
     /* border-bottom: 1px solid rgba(255, 255, 255, 0.2); */
+    
+    transition: all 0.3s ease;
+  }
+  
+  header.scrolled {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    /*border-bottom: 1px solid rgba(0,0,0,0.05);*/
   }
   
   .logo {
@@ -301,9 +314,21 @@
 </footer>
 
 <script>
+// Folder toggle
 function toggleFolder(el) {
   el.classList.toggle("active");
 }
+
+// Header shadow on scroll
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 10) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
+});
 </script>
 
 </body>
