@@ -7,6 +7,39 @@
 <link rel="icon" type="image/png" href="Icon/Dark.png">
 
 <style>
+  header {
+    /* Positioning */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    z-index: 1000;
+  
+    /* Glassmorphism Effect */
+    background: rgba(255, 255, 255, 0.1); /* Transparent white */
+    backdrop-filter: blur(10px);          /* The blur effect */
+    -webkit-backdrop-filter: blur(10px);  /* Safari support */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2a2524;
+  }
+  
+  .main-btn {
+    padding: 0.8rem 1.5rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
   body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
@@ -189,6 +222,10 @@
 </head>
 
 <body>
+<header class="glass-header">
+  <div class="logo">Coterie</div>
+  <button class="main-btn">Get Started</button>
+</header>
 
 <section class="hero">
   <h1>App Folders.<br>For your Mac dock</h1>
