@@ -7,234 +7,231 @@
 <link rel="icon" type="image/png" href="Icon/Dark.png">
 
 <style>
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
-  background: #FFF3DB;
-  color: #2a2524;
-  overflow-x: hidden;
-  animation: fadeIn 0.6s ease;
-}
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+    background: #FFF3DB;
+    color: white;
+    overflow-x: hidden;
+  }
+  
+  header {
+    /* Positioning */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 20px;
+    z-index: 1000;
+  
+    /* Glassmorphism Effect */
+    background: #FFF3DBE6; /* Transparent white */
+    backdrop-filter: blur(15px);          /* The blur effect */
+    -webkit-backdrop-filter: blur(15px);  /* Safari support */
+    /* border-bottom: 1px solid rgba(255, 255, 255, 0.2); */
+  }
+  
+  .logo {
+    font-size: 22px;
+    font-weight: 650;
+    color: #2a2524;
+  }
+  
+  .main-btn {
+    padding: 19px 30px;
+    border-radius: 15px;
+    border: 0px;
+    font-size: 15px;
+    text-decoration: none;
+    margin: 5px;
+    display: inline-block;
+    font-weight: 650;
+    background: rgba(0,0,0,0.05);
+    color: #2a2524;
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+  }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+  h1 {
+    color: #2a2524;
+    font-size: 90px;
+    margin: 0
+    font-weight: 750;
+    line-height: 1.05;
+  }
 
-/* HEADER */
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 28px;
-  z-index: 1000;
+  h3 {
+    color: #2a2524;
+  }
 
-  background: rgba(255,243,219,0.7);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  p {
+    color: #2a2524;
+    font-size: 18px;
+  }
 
-  transition: box-shadow 0.25s ease, border 0.25s ease;
-}
+  .hero {
+    text-align: center;
+    padding: 100px 20px 60px;
+  }
 
-header.scrolled {
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-}
+  .buttons {
+    margin-top: 25px;
+  }
 
-/* LOGO */
-.logo {
-  font-size: 20px;
-  font-weight: 650;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+  .btn {
+    background: #2a2524;
+    color: #FFF3DB;
+    padding: 19px 30px;
+    border-radius: 15px;
+    text-decoration: none;
+    margin: 5px;
+    display: inline-block;
+    font-weight: 650;
+    box-shadow: 0 12px 22px rgba(0,0,0,0.25);
+  }
 
-/* BUTTONS */
-.main-btn, .btn {
-  padding: 16px 26px;
-  border-radius: 14px;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s ease, box-shadow 0.2s ease;
-}
+  .btn.secondary {
+    background: rgba(0,0,0,0.05);
+    color: #2a2524;
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+  }
 
-.main-btn {
-  background: rgba(0,0,0,0.06);
-}
+  /* Mac window preview */
+  .preview {
+    margin: 30px auto;
+    width: 90%;
+    max-width: 1200px;
+    border-radius: 32px;
+    background: #1c1c22;
+    overflow: hidden;
+  }
 
-.btn {
-  background: #2a2524;
-  color: #FFF3DB;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
+  .titlebar {
+    height: 40px;
+    background: rgba(255,255,255,0.05);
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+  }
 
-.btn.secondary {
-  background: rgba(0,0,0,0.05);
-  color: #2a2524;
-  box-shadow: none;
-}
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
 
-.btn:hover {
-  background: #1f1b1a;
-}
+  .red { background: #ff5f57; }
+  .yellow { background: #febc2e; }
+  .green { background: #28c840; }
 
-.main-btn:hover {
-  background: rgba(0,0,0,0.1);
-}
+  .screen {
+    height: 400px;
+    background: linear-gradient(#2c2c34, #1a1a20);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 20px;
+  }
 
-/* HERO */
-.hero {
-  text-align: center;
-  padding: 140px 20px 60px;
-}
+  /* Dock */
+  .dock {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 10px 15px;
+    display: flex;
+    gap: 12px;
+  }
 
-h1 {
-  font-size: 84px;
-  margin: 0;
-  font-weight: 750;
-  line-height: 1.05;
-}
+  .app, .folder {
+    width: 50px;
+    height: 50px;
+    background: #444;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
 
-p {
-  font-size: 18px;
-  opacity: 0.8;
-}
+  .app:hover, .folder:hover {
+    transform: scale(1.15);
+  }
 
-/* PREVIEW */
-.preview {
-  margin: 50px auto;
-  width: 90%;
-  max-width: 1100px;
-  border-radius: 28px;
-  overflow: hidden;
+  .folder {
+    background: linear-gradient(135deg, #6aa9ff, #3b6fff);
+    position: relative;
+  }
 
-  box-shadow: 
-    0 60px 120px rgba(0,0,0,0.25),
-    0 10px 30px rgba(0,0,0,0.1);
+  /* Folder popup */
+  .folder-popup {
+    position: absolute;
+    bottom: 70px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 180px;
+    background: rgba(30,30,40,0.95);
+    border-radius: 16px;
+    padding: 10px;
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
 
-  transition: box-shadow 0.3s ease;
-}
+  .folder-popup div {
+    height: 40px;
+    background: #555;
+    border-radius: 10px;
+  }
 
-.preview:hover {
-  box-shadow: 
-    0 70px 140px rgba(0,0,0,0.28),
-    0 12px 35px rgba(0,0,0,0.12);
-}
+  .folder.active .folder-popup {
+    display: grid;
+    animation: pop 0.25s ease;
+  }
 
-.screen {
-  height: 420px;
-  background: linear-gradient(#2c2c34, #1a1a20);
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 25px;
-}
+  @keyframes pop {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
 
-/* DOCK */
-.dock {
-  background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(25px);
-  border-radius: 22px;
-  padding: 12px 18px;
-  display: flex;
-  gap: 14px;
-}
+  /* Features */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    padding: 80px 40px;
+    max-width: 1000px;
+    margin: auto;
+  }
 
-/* ICONS */
-.app, .folder {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  background: #444;
-  transition: transform 0.15s ease;
-}
+  .feature {
+    background: #00000000;
+    padding: 20px;
+    transition: transform 0.2s;
+  }
 
-.app:hover, .folder:hover {
-  transform: scale(1.08);
-}
+  .feature:hover {
+    transform: translateY(-5px);
+  }
 
-.folder {
-  background: linear-gradient(135deg, #6aa9ff, #3b6fff);
-  position: relative;
-}
+  /* Download */
+  .download {
+    text-align: center;
+    padding: 80px 20px;
+  }
 
-/* FOLDER */
-.folder-popup {
-  position: absolute;
-  bottom: 75px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 190px;
-  background: rgba(30,30,40,0.95);
-  border-radius: 18px;
-  padding: 12px;
-
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.15s ease;
-}
-
-.folder-popup div {
-  height: 40px;
-  background: #555;
-  border-radius: 10px;
-}
-
-.folder.active .folder-popup {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* FEATURES */
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 40px;
-  padding: 100px 40px;
-  max-width: 1100px;
-  margin: auto;
-}
-
-.feature {
-  transition: transform 0.2s ease;
-}
-
-.feature:hover {
-  transform: translateY(-3px);
-}
-
-/* DOWNLOAD */
-.download {
-  text-align: center;
-  padding: 100px 20px;
-}
-
-footer {
-  text-align: center;
-  padding: 40px;
-  opacity: 0.6;
-}
+  footer {
+    text-align: center;
+    padding: 30px;
+    color: #666;
+  }
 </style>
 </head>
 
 <body>
-
-<header>
-  <div class="logo">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M16.365 1.43c0 1.14-.47 2.19-1.23 2.96-.8.82-2.1 1.45-3.22 1.35-.14-1.12.43-2.3 1.2-3.05.83-.82 2.23-1.4 3.25-1.26zM20.5 17.1c-.6 1.4-.9 2.02-1.66 3.2-1.06 1.7-2.56 3.82-4.42 3.84-1.66.02-2.1-1.08-4.35-1.07-2.25.02-2.73 1.1-4.4 1.08-1.86-.02-3.28-1.96-4.34-3.66C-.4 15.5-.85 9.8 2.3 6.8c1.54-1.45 3.54-2.3 5.42-2.3 2.02 0 3.3 1.1 4.97 1.1 1.62 0 2.6-1.1 4.96-1.1 1.67 0 3.44.9 4.98 2.44-4.4 2.4-3.68 8.74.87 10.16z"/>
-    </svg>
-    Coterie
-  </div>
+<header class="glass-header">
+  <div class="logo">Coterie</div>
   <button class="main-btn">Download for Mac</button>
 </header>
 
@@ -307,16 +304,6 @@ footer {
 function toggleFolder(el) {
   el.classList.toggle("active");
 }
-
-const header = document.querySelector("header");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 10) {
-    header.classList.add("scrolled");
-  } else {
-    header.classList.remove("scrolled");
-  }
-});
 </script>
 
 </body>
